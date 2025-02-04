@@ -1,0 +1,16 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>de.kaemmelot.datafilesorter</id>
+    <name>Data File Sorter</name>
+    <vendor>Kaemmelot</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.DataFileSorterBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <applicationListeners>
+    </applicationListeners>
+</idea-plugin>
