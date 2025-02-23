@@ -11,7 +11,7 @@ import javax.swing.JPanel
 
 private const val COMMON_ROW_DESCRIPTION = ""
 
-class SettingsComponent() {
+class SettingsComponent {
     val panel: JPanel
     private val endWithNewlineCheckBox: JCheckBox
     private val separateGroupsCheckBox: JCheckBox

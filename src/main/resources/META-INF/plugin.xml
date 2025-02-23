@@ -1,8 +1,8 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
-<idea-plugin>
+<idea-plugin url="https://github.com/Kaemmelot/IntelliJ-data-file-sorter">
     <id>de.kaemmelot.datafilesorter</id>
     <name>Data File Sorter</name>
-    <vendor>Kaemmelot</vendor>
+    <vendor email="datafilesorter@kaemmelot.de">Kaemmelot</vendor>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>

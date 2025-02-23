@@ -1,5 +1,7 @@
 # Data File Sorter Changelog
 
-## [Unreleased]
+## [Unreleased] Initial Release
+
 ### Added
+
 - Property file sorting and formatting

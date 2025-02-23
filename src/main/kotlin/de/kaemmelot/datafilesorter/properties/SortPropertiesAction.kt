@@ -16,8 +16,8 @@ import kotlinx.coroutines.launch
 
 class SortPropertiesAction : AnAction() {
     override fun actionPerformed(event: AnActionEvent) {
-        val project: Project = event.getRequiredData(CommonDataKeys.PROJECT)
-        val editor: Editor = event.getRequiredData(CommonDataKeys.EDITOR)
+        val project: Project = event.getData(CommonDataKeys.PROJECT) ?: return // abort if missing
+        val editor: Editor = event.getData(CommonDataKeys.EDITOR) ?: return // abort if missing
         val lineSeparator: String = editor.virtualFile.detectedLineSeparator ?: return // abort if missing
         val fileContentSequence = editor.document.immutableCharSequence
 
