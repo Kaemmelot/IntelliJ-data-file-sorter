@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.changelog) // Gradle Changelog Plugin
     alias(libs.plugins.qodana) // Gradle Qodana Plugin
     alias(libs.plugins.kover) // Gradle Kover Plugin
+    id("idea") // IDEA support to download documentation
 }
 
 group = providers.gradleProperty("pluginGroup").get()
@@ -17,6 +18,12 @@ version = providers.gradleProperty("pluginVersion").get()
 // Set the JVM language level used to build the project.
 kotlin {
     jvmToolchain(21)
+}
+
+idea {
+    module {
+        isDownloadJavadoc = true
+    }
 }
 
 // Configure project's dependencies

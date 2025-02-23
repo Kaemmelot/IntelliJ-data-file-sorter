@@ -5,10 +5,33 @@
     <vendor>Kaemmelot</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
 
     <resource-bundle>messages.DataFileSorterBundle</resource-bundle>
 
+    <actions>
+        <action class="de.kaemmelot.datafilesorter.properties.SortPropertiesAction"
+                id="de.kaemmelot.datafilesorter.properties.SortPropertiesAction">
+            <synonym key="action.de.kaemmelot.datafilesorter.properties.SortPropertiesAction.synonymInitials"/>
+            <synonym key="action.de.kaemmelot.datafilesorter.properties.SortPropertiesAction.synonym1"/>
+            <synonym key="action.de.kaemmelot.datafilesorter.properties.SortPropertiesAction.synonym2"/>
+            <keyboard-shortcut
+                    keymap="$default"
+                    first-keystroke="control alt G"
+                    second-keystroke="S"/>
+            <add-to-group group-id="EditorPopupMenu"/>
+        </action>
+    </actions>
+
     <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable
+                parentId="editor"
+                instance="de.kaemmelot.datafilesorter.settings.DataFileSorterConfigurable"
+                id="de.kaemmelot.datafilesorter.settings.DataFileSorterConfigurable"
+                key="dataFileSorter.settings.name"
+                bundle="messages.DataFileSorterBundle"
+                nonDefaultProject="false"/>
+        <errorHandler implementation="com.intellij.diagnostic.JetBrainsMarketplaceErrorReportSubmitter"/>
     </extensions>
 
     <applicationListeners>
