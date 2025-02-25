@@ -1,8 +1,8 @@
 # Data File Sorter
 
 ![Build](https://github.com/Kaemmelot/intellij-data-file-sorter/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/26642-data-file-sorter.svg)](https://plugins.jetbrains.com/plugin/26642-data-file-sorter)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/26642-data-file-sorter.svg)](https://plugins.jetbrains.com/plugin/26642-data-file-sorter)
 
 <!-- Plugin description -->
 IntelliJ plugin that provides sort and format actions for data files.

@@ -1,6 +1,8 @@
 # Data File Sorter Changelog
 
-## [Unreleased] Initial Release
+## [Unreleased]
+
+## 0.1.0 Initial Release
 
 ### Added
 
