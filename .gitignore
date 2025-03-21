@@ -1,5 +1,9 @@
 .gradle
-.idea
+.idea/gradle_extensions.xml
+.idea/libraries/Gradle__*.xml
+.idea/mavenHomeManager.xml
+.idea/shelf
+.idea/workspace.xml
 .intellijPlatform
 .qodana
 .kotlin
