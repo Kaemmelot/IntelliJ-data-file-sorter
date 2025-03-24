@@ -1,19 +1,20 @@
 package de.kaemmelot.datafilesorter.properties
 
+import com.intellij.openapi.components.SerializablePersistentStateComponent
 import com.intellij.openapi.components.Service
-import com.intellij.openapi.components.SimplePersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
+import de.kaemmelot.datafilesorter.PluginConstants
 
 @Service(Service.Level.PROJECT)
 @State(
-    name = "de.kaemmelot.datafilesorter.properties.PropertySettings",
-    storages = [Storage(value = "DataFileSorter.xml", exportable = true)]
+    name = PluginConstants.PLUGIN_ID + ".properties.PropertySettings",
+    storages = [Storage(value = PluginConstants.PLUGIN_PROJECT_SETTINGS_FILE, exportable = true)]
 )
 class PropertySettingsService :
-    SimplePersistentStateComponent<PropertySettings>(PropertySettings()) {
+    SerializablePersistentStateComponent<PropertySettings>(PropertySettings()) {
 
     companion object {
         @JvmStatic
@@ -23,36 +24,48 @@ class PropertySettingsService :
     var endWithNewline: Boolean
         get() = state.endWithNewline
         set(value) {
-            state.endWithNewline = value
+            updateState {
+                it.copy(endWithNewline = value)
+            }
         }
 
     var separateGroups: Boolean
         get() = state.separateGroups
         set(value) {
-            state.separateGroups = value
+            updateState {
+                it.copy(separateGroups = value)
+            }
         }
 
     var indentValues: Boolean
         get() = state.indentValues
         set(value) {
-            state.indentValues = value
+            updateState {
+                it.copy(indentValues = value)
+            }
         }
 
     var spaceAroundSeparator: Boolean
         get() = state.spaceAroundSeparator
         set(value) {
-            state.spaceAroundSeparator = value
+            updateState {
+                it.copy(spaceAroundSeparator = value)
+            }
         }
 
     var forceSeparator: Boolean
         get() = state.forceSeparator
         set(value) {
-            state.forceSeparator = value
+            updateState {
+                it.copy(forceSeparator = value)
+            }
         }
 
     var forcedSeparator: Char
         get() = state.forcedSeparator
         set(value) {
-            state.forcedSeparator = value
+            updateState {
+                it.copy(forcedSeparator = value)
+            }
         }
 }

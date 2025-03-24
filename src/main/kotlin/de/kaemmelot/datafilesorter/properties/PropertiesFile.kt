@@ -26,7 +26,6 @@ class PropertiesFile internal constructor(
         ): PropertiesFile {
             val groups = TreeMap<String, PropertyGroup>()
             var trailingComment: String? = null
-            // reduce memory/time consumption by avoiding a copy of the file
             val lineIterator: Iterator<String> = propertyLines.splitToSequence(lineSeparator).iterator()
 
             while (lineIterator.hasNext()) {

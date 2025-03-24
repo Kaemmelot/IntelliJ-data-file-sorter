@@ -65,28 +65,28 @@ class SettingsComponent {
         var forcedSeparatorLabel: Cell<JLabel>? = null
         var forcedSeparator: Cell<JComboBox<Char>>? = null
         panel = panel {
-            group(DataFileSorterBundle.message("dataFileSorter.settings.properties.name")) {
+            group(DataFileSorterBundle.message("settings.properties.name")) {
                 row(COMMON_ROW_DESCRIPTION) {
-                    endWithNewline = checkBox(DataFileSorterBundle.message("dataFileSorter.settings.properties.endWithNewline"))
+                    endWithNewline = checkBox(DataFileSorterBundle.message("settings.properties.endWithNewline"))
                 }
                 row(COMMON_ROW_DESCRIPTION) {
-                    separateGroups = checkBox(DataFileSorterBundle.message("dataFileSorter.settings.properties.separateGroups"))
+                    separateGroups = checkBox(DataFileSorterBundle.message("settings.properties.separateGroups"))
                 }
                 row(COMMON_ROW_DESCRIPTION) {
-                    indentValues = checkBox(DataFileSorterBundle.message("dataFileSorter.settings.properties.intendValues"))
+                    indentValues = checkBox(DataFileSorterBundle.message("settings.properties.intendValues"))
                 }
                 row(COMMON_ROW_DESCRIPTION) {
                     spaceAroundSeparator =
-                        checkBox(DataFileSorterBundle.message("dataFileSorter.settings.properties.spaceAroundSeparator"))
+                        checkBox(DataFileSorterBundle.message("settings.properties.spaceAroundSeparator"))
                 }
                 row(COMMON_ROW_DESCRIPTION) {
-                    forceSeparator = checkBox(DataFileSorterBundle.message("dataFileSorter.settings.properties.forceSeparator"))
+                    forceSeparator = checkBox(DataFileSorterBundle.message("settings.properties.forceSeparator"))
                 }
                 panel {
                     row(COMMON_ROW_DESCRIPTION) {
                         enabledIf(forceSeparator!!.component.selected)
                         forcedSeparatorLabel =
-                            label(DataFileSorterBundle.message("dataFileSorter.settings.properties.forcedSeparator"))
+                            label(DataFileSorterBundle.message("settings.properties.forcedSeparator"))
                         forcedSeparator = comboBox(listOf('=', ':'))
                     }
                 }

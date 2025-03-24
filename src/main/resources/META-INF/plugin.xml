@@ -28,7 +28,7 @@
                 parentId="editor"
                 instance="de.kaemmelot.datafilesorter.settings.DataFileSorterConfigurable"
                 id="de.kaemmelot.datafilesorter.settings.DataFileSorterConfigurable"
-                key="dataFileSorter.settings.name"
+                key="settings.name"
                 bundle="messages.DataFileSorterBundle"
                 nonDefaultProject="false"/>
         <errorHandler implementation="com.intellij.diagnostic.JetBrainsMarketplaceErrorReportSubmitter"/>

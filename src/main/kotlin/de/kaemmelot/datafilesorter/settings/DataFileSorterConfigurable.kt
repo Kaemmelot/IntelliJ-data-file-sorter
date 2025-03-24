@@ -45,7 +45,7 @@ class DataFileSorterConfigurable(private val project: Project) : SearchableConfi
         propertySettingsService.forcedSeparator = settingsComponent!!.forcedSeparator
     }
 
-    override fun getDisplayName(): String = DataFileSorterBundle.message("dataFileSorter.settings.name")
+    override fun getDisplayName(): String = DataFileSorterBundle.message("settings.name")
 
     override fun getId(): String = "de.kaemmelot.datafilesorter.settings.DataFileSorterConfigurable"
 

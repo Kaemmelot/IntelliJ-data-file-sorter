@@ -233,9 +233,7 @@ class PropertiesFileTest {
 
     @Test
     fun shouldMergePropertiesWithForcedSeparator() {
-        val settings = PropertySettings()
-        settings.forceSeparator = true
-        settings.forcedSeparator = '='
+        val settings = PropertySettings(forceSeparator = true)
 
         val propertiesFile: PropertiesFile = artificialTestFile(settings)
 
@@ -259,8 +257,7 @@ class PropertiesFileTest {
 
     @Test
     fun shouldMergePropertiesWithoutNewLine() {
-        val settings = PropertySettings()
-        settings.endWithNewline = false
+        val settings = PropertySettings(endWithNewline = false)
 
         val propertiesFile: PropertiesFile = artificialTestFile(settings)
 
@@ -283,8 +280,7 @@ class PropertiesFileTest {
 
     @Test
     fun shouldMergePropertiesWithoutSeparatorSpaces() {
-        val settings = PropertySettings()
-        settings.spaceAroundSeparator = false
+        val settings = PropertySettings(spaceAroundSeparator = false)
 
         val propertiesFile: PropertiesFile = artificialTestFile(settings)
 
@@ -308,8 +304,7 @@ class PropertiesFileTest {
 
     @Test
     fun shouldMergePropertiesWithoutSeparatedGroups() {
-        val settings = PropertySettings()
-        settings.separateGroups = false
+        val settings = PropertySettings(separateGroups = false)
 
         val propertiesFile: PropertiesFile = artificialTestFile(settings)
 
@@ -331,8 +326,7 @@ class PropertiesFileTest {
 
     @Test
     fun shouldMergePropertiesWithoutIndent() {
-        val settings = PropertySettings()
-        settings.indentValues = false
+        val settings = PropertySettings(indentValues = false)
 
         val propertiesFile: PropertiesFile = artificialTestFile(settings)
 
