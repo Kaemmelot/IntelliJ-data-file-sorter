@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/26642-data-file-sorter.svg)](https://plugins.jetbrains.com/plugin/26642-data-file-sorter)
 
 <!-- Plugin description -->
-IntelliJ plugin that provides sort and format actions for data files.
+Plugin that provides configurable sort and format actions for data files.
 
 ### Features
 
@@ -13,7 +13,8 @@ IntelliJ plugin that provides sort and format actions for data files.
     - Separate property groups with empty lines
     - Indent all values per group
     - Force identical separators for all files
-    - Configurable per project
+- Optional commit check
+- Configurable per project
 
 ### Ideas for the Future
 

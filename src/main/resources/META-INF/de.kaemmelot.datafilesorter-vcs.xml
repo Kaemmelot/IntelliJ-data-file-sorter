@@ -1,0 +1,7 @@
+<idea-plugin url="https://github.com/Kaemmelot/IntelliJ-data-file-sorter">
+    <!-- VCS extension to add an optional commit check -->
+    <extensions defaultExtensionNs="com.intellij">
+        <checkinHandlerFactory id="de.kaemmelot.datafilesorter.vcs.DataFilesCheckinHandlerFactory"
+                               implementation="de.kaemmelot.datafilesorter.vcs.DataFilesCheckinHandlerFactory"/>
+    </extensions>
+</idea-plugin>

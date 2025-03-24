@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- VCS checkin handler to check data files before commit
+
 ### Changed
 
 - Removed confirmation for `undo`

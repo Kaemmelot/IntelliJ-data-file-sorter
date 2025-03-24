@@ -6,6 +6,7 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
+    <depends optional="true" config-file="de.kaemmelot.datafilesorter-vcs.xml">com.intellij.modules.vcs</depends>
 
     <resource-bundle>messages.DataFileSorterBundle</resource-bundle>
 
