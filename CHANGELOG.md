@@ -5,12 +5,13 @@
 ### Added
 
 - VCS checkin handler to check data files before commit
+- Update notification message
 
 ### Changed
 
 - Removed confirmation for `undo`
 - Used virtual file API to read and write files
-- Persisted state handling now uses `SerializablePersistentStateComponent`
+- Persisted settings now use a `SerializablePersistentStateComponent`
 
 ## 0.1.0 Initial Release
 

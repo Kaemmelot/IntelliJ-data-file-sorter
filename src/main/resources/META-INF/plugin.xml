@@ -32,7 +32,13 @@
                 key="settings.name"
                 bundle="messages.DataFileSorterBundle"
                 nonDefaultProject="false"/>
+
         <errorHandler implementation="com.intellij.diagnostic.JetBrainsMarketplaceErrorReportSubmitter"/>
+
+        <postStartupActivity implementation="de.kaemmelot.datafilesorter.PluginUpdatedNotificationActivity"/>
+
+        <notificationGroup displayType="BALLOON" id="de.kaemmelot.datafilesorter.pluginUpdate"
+                           key="pluginUpdate.notificationGroup"/>
     </extensions>
 
     <applicationListeners>

@@ -8,10 +8,11 @@ import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import de.kaemmelot.datafilesorter.PluginConstants
 
+/** Service that stores project level settings related to properties files */
 @Service(Service.Level.PROJECT)
 @State(
     name = PluginConstants.PLUGIN_ID + ".properties.PropertySettings",
-    storages = [Storage(value = PluginConstants.PLUGIN_PROJECT_SETTINGS_FILE, exportable = true)]
+    storages = [Storage(value = PluginConstants.PLUGIN_SETTINGS_FILE, exportable = true)]
 )
 class PropertySettingsService :
     SerializablePersistentStateComponent<PropertySettings>(PropertySettings()) {
