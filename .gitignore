@@ -4,6 +4,7 @@
 .idea/mavenHomeManager.xml
 .idea/shelf
 .idea/workspace.xml
+**/*.iml
 .intellijPlatform
 .qodana
 .kotlin
