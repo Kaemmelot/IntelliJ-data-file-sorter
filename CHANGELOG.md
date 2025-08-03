@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update plugin template to [v2.2.0](https://github.com/JetBrains/intellij-platform-plugin-template/releases/tag/v2.2.0)
+
 ## [0.2.0] - 2025-03-26
 
 ### Added

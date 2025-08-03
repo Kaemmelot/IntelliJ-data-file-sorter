@@ -6,6 +6,6 @@
 .idea/workspace.xml
 **/*.iml
 .intellijPlatform
-.qodana
 .kotlin
+.qodana
 build
