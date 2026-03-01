@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Action name incorrectly displayed
+
 ### Other
 
 - Update plugin template to [2.4.0](https://github.com/JetBrains/intellij-platform-plugin-template/releases/tag/2.4.0)
