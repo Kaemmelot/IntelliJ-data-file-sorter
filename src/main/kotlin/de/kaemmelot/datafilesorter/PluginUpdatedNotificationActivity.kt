@@ -23,10 +23,13 @@ class PluginUpdatedNotificationActivity : ProjectActivity {
 
         PropertiesComponent.getInstance().setValue(LAST_USED_VERSION, PluginConstants.VERSION)
 
+        @Suppress("USELESS_ELVIS")
+        val updateMessage = DataFileSorterBundle.message("pluginUpdate.description", PluginConstants.VERSION) ?: return // skip without message
+
         NotificationGroupManager.getInstance().getNotificationGroup(NOTIFICATION_GROUP)
             .createNotification(
                 DataFileSorterBundle.message("pluginUpdate.title"),
-                DataFileSorterBundle.message("pluginUpdate.description", PluginConstants.VERSION),
+                updateMessage,
                 NotificationType.INFORMATION
             )
             .notify(project)

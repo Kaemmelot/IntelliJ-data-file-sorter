@@ -14,6 +14,7 @@ Plugin that provides configurable sort and format actions for data files.
     - Indent all values per group
     - Force identical separators for all files
 - Optional commit check
+- Usable in the version control three-way merge window
 - Configurable per project
 
 ### Ideas for the Future
