@@ -2,9 +2,9 @@
 
 ## [Unreleased]
 
-### Changed
+### Other
 
-- Update plugin template to [v2.2.0](https://github.com/JetBrains/intellij-platform-plugin-template/releases/tag/v2.2.0)
+- Update plugin template to [2.4.0](https://github.com/JetBrains/intellij-platform-plugin-template/releases/tag/2.4.0)
 
 ## [0.2.0] - 2025-03-26
 

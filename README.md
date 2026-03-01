@@ -24,4 +24,4 @@ Plugin that provides configurable sort and format actions for data files.
 <!-- Plugin description end -->
 
 ---
-Plugin based on the [IntelliJ Platform Plugin Template v2.2.0](https://github.com/JetBrains/intellij-platform-plugin-template/tree/v2.2.0).
+Plugin based on the [IntelliJ Platform Plugin Template 2.4.0](https://github.com/JetBrains/intellij-platform-plugin-template/tree/2.4.0).
