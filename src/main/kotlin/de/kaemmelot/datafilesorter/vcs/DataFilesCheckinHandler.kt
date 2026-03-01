@@ -3,6 +3,8 @@ package de.kaemmelot.datafilesorter.vcs
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.readAction
 import com.intellij.openapi.diagnostic.logger
+import com.intellij.openapi.editor.Document
+import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.vcs.CheckinProjectPanel
@@ -20,10 +22,10 @@ import com.intellij.platform.util.progress.reportSequentialProgress
 import de.kaemmelot.datafilesorter.DataFileSorterBundle
 import de.kaemmelot.datafilesorter.PluginConstants
 import de.kaemmelot.datafilesorter.PluginConstants.PROPERTIES_EXTENSION
-import de.kaemmelot.datafilesorter.properties.PropertiesFile
+import de.kaemmelot.datafilesorter.properties.model.PropertiesFile
 import de.kaemmelot.datafilesorter.properties.PropertySettings
 import de.kaemmelot.datafilesorter.properties.PropertySettingsService
-import de.kaemmelot.datafilesorter.properties.SortPropertiesAction
+import de.kaemmelot.datafilesorter.properties.sortAndFormatFile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -62,14 +64,21 @@ class DataFilesCheckinHandler(private val panel: CheckinProjectPanel) : CheckinH
     override fun isEnabled(): Boolean = loadOrDefault()
 
     override suspend fun runCheck(commitInfo: CommitInfo): CommitProblem? {
-        val filesToCheck: List<VirtualFile> =
+        val filesToCheck: List<Pair<VirtualFile, Document>> =
             commitInfo.committedVirtualFiles.filter {
-                it.isFile
-                        && it.extension == PROPERTIES_EXTENSION
-                        && it.isWritable
+                it.isFile && it.extension == PROPERTIES_EXTENSION
             }
+                .map {
+                    val document = FileDocumentManager.getInstance().getDocument(it)
+                    if (document != null && document.isWritable) {
+                        Pair(it, document)
+                    } else {
+                        null
+                    }
+                }
+                .requireNoNulls()
 
-        val invalidFiles: List<VirtualFile>
+        val invalidFiles: List<Pair<VirtualFile, Document>>
         try {
             invalidFiles = determineUnsortedOrUnformattedFiles(filesToCheck)
         } catch (missingLineSeparatorException: MissingLineSeparatorException) {
@@ -92,10 +101,10 @@ class DataFilesCheckinHandler(private val panel: CheckinProjectPanel) : CheckinH
             DialogWrapper.OK_EXIT_CODE -> {
                 CoroutineScope(Dispatchers.Default).launch {
                     for (file in dialog.selectedFiles) {
-                        SortPropertiesAction.sortAndFormatFile(file, panel.project)
+                        sortAndFormatFile(file.second, panel.project)
                     }
                 }
-                return null
+                null
             }
             // skip all files
             SortAndFormatFilesChoiceDialog.SKIP_EXIT_CODE -> null
@@ -109,27 +118,25 @@ class DataFilesCheckinHandler(private val panel: CheckinProjectPanel) : CheckinH
         }
     }
 
-    private suspend fun determineUnsortedOrUnformattedFiles(filesToCheck: List<VirtualFile>): List<VirtualFile> {
-        val unsortedFiles: MutableList<VirtualFile> = ArrayList(filesToCheck.size)
+    private suspend fun determineUnsortedOrUnformattedFiles(filesToCheck: List<Pair<VirtualFile, Document>>): List<Pair<VirtualFile, Document>> {
+        val unsortedFiles: MutableList<Pair<VirtualFile, Document>> = ArrayList(filesToCheck.size)
 
         withContext(Dispatchers.Default) {
             val settings = PropertySettingsService.getInstance(panel.project).state
 
             reportSequentialProgress(filesToCheck.size) { reporter ->
-                for (file in filesToCheck) {
-                    if (file.detectedLineSeparator == null) {
-                        throw MissingLineSeparatorException(file)
-                    } else if (!file.isWritable) {
-                        log.error("Unexpected read-only file ${file.name}. Skipping this file.")
+                for (filePair in filesToCheck) {
+                    if (!filePair.second.isWritable) {
+                        log.error("Unexpected read-only file ${filePair.first.name}. Skipping this file.")
                         reporter.itemStep()
                         continue
                     }
 
                     reporter.itemStep(
-                        DataFileSorterBundle.message("vcs.checkFilesProgress", file.name)
+                        DataFileSorterBundle.message("vcs.checkFilesProgress", filePair.first.name)
                     ) {
-                        if (isFileNotSortedAndFormatted(file, settings)) {
-                            unsortedFiles.add(file)
+                        if (isFileNotSortedAndFormatted(filePair.first, settings)) {
+                            unsortedFiles.add(filePair)
                         }
                     }
                 }

@@ -1,11 +1,16 @@
-package de.kaemmelot.datafilesorter.properties
+package de.kaemmelot.datafilesorter.properties.model
 
+import de.kaemmelot.datafilesorter.properties.PropertySettings
 import java.util.*
 import java.util.regex.Pattern
+import kotlin.collections.iterator
 
 private val preferredSeparatorPattern = Pattern.compile("[=:]")
 private val whiteSpacePattern = Pattern.compile(" ")
 
+/**
+ * Representation of a property file.
+ */
 class PropertiesFile internal constructor(
     internal val groups: SortedMap<String, PropertyGroup>,
     internal val lineSeparator: String,

@@ -1,4 +1,4 @@
-package de.kaemmelot.datafilesorter.properties
+package de.kaemmelot.datafilesorter.properties.model
 
 /**
  * Single key/value property with an optional comment.

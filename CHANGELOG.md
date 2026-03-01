@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Added
+
+- Provide the action in the version control merge diff viewer
+
+### Changed
+
+- Prevent file cache conflicts
+- Replace deprecated file locking
+
 ### Fixed
 
 - Action name incorrectly displayed

@@ -1,5 +1,6 @@
-package de.kaemmelot.datafilesorter.properties
+package de.kaemmelot.datafilesorter.properties.model
 
+import de.kaemmelot.datafilesorter.properties.PropertySettings
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.util.*

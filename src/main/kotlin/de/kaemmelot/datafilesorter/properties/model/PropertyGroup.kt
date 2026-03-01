@@ -1,4 +1,4 @@
-package de.kaemmelot.datafilesorter.properties
+package de.kaemmelot.datafilesorter.properties.model
 
 import kotlinx.collections.immutable.toImmutableMap
 import java.util.*

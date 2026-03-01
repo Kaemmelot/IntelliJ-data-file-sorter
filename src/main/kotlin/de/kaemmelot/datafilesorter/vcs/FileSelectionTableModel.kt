@@ -1,5 +1,6 @@
 package de.kaemmelot.datafilesorter.vcs
 
+import com.intellij.openapi.editor.Document
 import com.intellij.openapi.vfs.VirtualFile
 import de.kaemmelot.datafilesorter.DataFileSorterBundle
 import javax.swing.JCheckBox
@@ -7,11 +8,11 @@ import javax.swing.JLabel
 import javax.swing.table.AbstractTableModel
 import javax.swing.table.TableColumn
 
-class FileSelectionTableModel(private val files: List<VirtualFile>) : AbstractTableModel() {
+class FileSelectionTableModel(private val files: List<Pair<VirtualFile, Document>>) : AbstractTableModel() {
 
-    private val internalFileSelection: MutableSet<VirtualFile> = files.toMutableSet()
+    private val internalFileSelection: MutableSet<Pair<VirtualFile, Document>> = files.toMutableSet()
 
-    val selectedFiles: Set<VirtualFile> get() = internalFileSelection
+    val selectedFiles: Set<Pair<VirtualFile, Document>> get() = internalFileSelection
 
     override fun getRowCount(): Int = files.size
 
@@ -23,7 +24,7 @@ class FileSelectionTableModel(private val files: List<VirtualFile>) : AbstractTa
         }
         return when (columnIndex) {
             0 -> internalFileSelection.contains(files[rowIndex])
-            1 -> files[rowIndex].name
+            1 -> files[rowIndex].first.name
             else -> throw IndexOutOfBoundsException(columnIndex)
         }
     }

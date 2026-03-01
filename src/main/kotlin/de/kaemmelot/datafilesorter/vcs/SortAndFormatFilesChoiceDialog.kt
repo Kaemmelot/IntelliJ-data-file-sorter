@@ -1,5 +1,6 @@
 package de.kaemmelot.datafilesorter.vcs
 
+import com.intellij.openapi.editor.Document
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.vfs.VirtualFile
@@ -15,7 +16,8 @@ import javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN
 /**
  * Dialog to let the user choose what to do with unsorted or unformatted files.
  */
-class SortAndFormatFilesChoiceDialog(project: Project, files: List<VirtualFile>) : DialogWrapper(project) {
+class SortAndFormatFilesChoiceDialog(project: Project, files: List<Pair<VirtualFile, Document>>) :
+    DialogWrapper(project) {
 
     companion object {
         const val SKIP_EXIT_CODE = NEXT_USER_EXIT_CODE
@@ -25,7 +27,7 @@ class SortAndFormatFilesChoiceDialog(project: Project, files: List<VirtualFile>)
 
     private val tableModel = FileSelectionTableModel(files)
 
-    val selectedFiles: Set<VirtualFile>
+    val selectedFiles: Set<Pair<VirtualFile, Document>>
         get() = tableModel.selectedFiles
 
     init {
@@ -68,7 +70,7 @@ class SortAndFormatFilesChoiceDialog(project: Project, files: List<VirtualFile>)
     }
 
     private inner class SkipAction :
-        DialogWrapper.DialogWrapperAction(DataFileSorterBundle.message("vcs.choiceDialog.skipAction")) {
+        DialogWrapperAction(DataFileSorterBundle.message("vcs.choiceDialog.skipAction")) {
 
         init {
             putValue(MAC_ACTION_ORDER, DEFAULT_ACTION_ORDER - 10)
