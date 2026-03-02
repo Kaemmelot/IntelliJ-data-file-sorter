@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Fixes
+
+- Wrong display of the plugin name
+- Wrong plugin references
+
 ## [0.3.0] - 2026-03-01
 
 ### Added
@@ -40,7 +45,7 @@
 
 - Property file sorting and formatting
 
-[Unreleased]: https://github.com/Kaemmelot/intellij-data-files-sorter/compare/v0.3.0...HEAD
-[0.3.0]: https://github.com/Kaemmelot/intellij-data-files-sorter/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/Kaemmelot/intellij-data-files-sorter/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/Kaemmelot/intellij-data-files-sorter/commits/v0.1.0
+[Unreleased]: https://github.com/Kaemmelot/intellij-data-file-sorter/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/Kaemmelot/intellij-data-file-sorter/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/Kaemmelot/intellij-data-file-sorter/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/Kaemmelot/intellij-data-file-sorter/commits/v0.1.0
